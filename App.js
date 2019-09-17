@@ -1,5 +1,5 @@
 
-import React, {Fragment} from 'react';
+import React, { Component } from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -19,18 +19,27 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 //import console = require('console');
-
-
-const App = () => {
-  const  list_data = [
-    {name: 'Jagtar',key: '1',},
-    {name: 'Pranav',key: '2',},
-    {name: 'abc',key: '3',},
-    {name: 'def',key: '4',}
+const  list_data = [
+  {name: 'Jagtar',key: '1',},
+  {name: 'Pranav',key: '2',},
+  {name: 'abc',key: '3',},
+  {name: 'def',key: '4',}
 ]
 const colors = ['#DFBBB1', '#C08552'];
-  return (
+
+class App extends Component{
+  constructor(){
+    super();
+  }
   
+render(){
+  var fields = [];
+  for(var index = 0; index < 100; index++) {
+    fields.push( <Text style={[styles.numberStyle,{backgroundColor: colors[index % colors.length]}]}>{index+1}</Text>)
+  }
+  return (
+ 
+        
     //flexDirection, alignItems, and justifyContent
     //row, column, row-reverse, column-reverse
     <View style={{
@@ -43,6 +52,9 @@ const colors = ['#DFBBB1', '#C08552'];
       flexDirection: "row",
       backgroundColor: "#DFBBB1"
       }}>
+
+        {fields}
+        {/* <Text style={styles.numberStyle}>1</Text>
         <Text style={styles.numberStyle}>1</Text>
         <Text style={styles.numberStyle}>1</Text>
         <Text style={styles.numberStyle}>1</Text>
@@ -59,8 +71,7 @@ const colors = ['#DFBBB1', '#C08552'];
         <Text style={styles.numberStyle}>1</Text>
         <Text style={styles.numberStyle}>1</Text>
         <Text style={styles.numberStyle}>1</Text>
-        <Text style={styles.numberStyle}>1</Text>
-        <Text style={styles.numberStyle}>1</Text>
+        <Text style={styles.numberStyle}>1</Text> */}
         
  
 
@@ -88,6 +99,7 @@ const colors = ['#DFBBB1', '#C08552'];
     //     <View style={{alignSelf:"flex-start"  ,backgroundColor: '#008080',width: 50, height: 50}} />
     //   </View>
   );
+    }
 };
 
 const styles = StyleSheet.create({
